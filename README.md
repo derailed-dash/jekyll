@@ -4,6 +4,10 @@
 
 A Jekyll Image with prereqs installed, default config, GitHub pages support, and compose file.
 
+## GitHub
+
+https://github.com/derailed-dash/jekyll
+
 ## Overview
 
 This is a modified Docker container image, based on Jekyll/Jekyll.
