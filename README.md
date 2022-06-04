@@ -43,16 +43,18 @@ jekyll new --force --skip-bundle .
 cp -p ../config/* .
 ```
 
-At this point, make any changes you want to make to the configuration files. For example, you may wish to update the jekyll and github-pages gem versions, as stored in supplied Gemfile. If you need to update versions for GitHub Pages support, these pages will be helpful:
+At this point, make any changes you want to make to the configuration files. For example, you may wish to update the Gemfile to update jekyll and github-pages gem versions, or add any custom plugins we want to use.
+
+If you need to update versions for GitHub Pages support, these pages will be helpful:
 
 - [Creating a GitHub Pages Site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 - [GitHub Pages Dependency Versions](https://pages.github.com/versions)
-
 
 Now complete the site build from the container session:
 
 ```bash
 bundle install
+bundle update
 exit
 ```
 
