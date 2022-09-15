@@ -14,9 +14,12 @@ This is a modified Docker container image, based on Jekyll/Jekyll.
 
 - It is based on Jekyll 4.2, which uses Ruby 2.7.  Since 4.2.2, Jekyll uses Ruby 3 and this seems to have broken some gems.
 - It installs the appropriate Bundler version for managing Ruby gem dependencies.
-- It installs the webrick gem, which is required by Jekyll, but no longer installed by default in Ruby.
 - It provides some default configuration files in /srv/config/
-  - A Gemfile which installs GitHub Pages gem, webrick, and latest compatible version of Jekyll.
+  - A Gemfile which:
+    - Installs `github-pages` gem
+    - `webrick`, which is required by Jekyll, but no longer installed by default in Ruby.
+    - `github-pages-unscramble`, to allow use of plugins that aren't on the GitHub Pages whitelist, locally.
+    - `jekyll-spaceship`, which provides various processors, like table, mathjax, mermaid
   - A _config.docker.yml to allow us to run locally, and expose on localhost:4000.
   - A docker-compose.yml for starting and serving your site through the container; it automatically sets up environment variables and volumes.
 
