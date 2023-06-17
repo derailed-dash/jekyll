@@ -20,8 +20,8 @@ This is a modified Docker container image, based on Jekyll/Jekyll.
     - `webrick`, which is required by Jekyll, but no longer installed by default in Ruby.
     - `github-pages-unscramble`, to allow use of plugins that aren't on the GitHub Pages whitelist, locally.
     - `jekyll-spaceship`, which provides various processors, like table, mathjax, mermaid
-  - A _config.docker.yml to allow us to run locally, and expose on localhost:4000.
-  - A docker-compose.yml for starting and serving your site through the container; it automatically sets up environment variables and volumes.
+  - A `_config.docker.yml` to allow us to run locally, and expose on localhost:4000.
+  - A `docker-compose.yml` for starting and serving your site through the container; it automatically sets up environment variables and volumes.
 
 ## Usage Instructions
 
@@ -70,6 +70,13 @@ docker compose up
 ```
 
 Note that this configuration monitors for changes and automatically updates the site content.
+
+Other notes:
+- If you want the Jekyll container to be able to authenticate to your GitHub repo, then you should create a `.env` file in folder where your docker-compose.yml lives, and use this to configure your GitHub token, e.g.
+
+```bash
+JEKYLL_GITHUB_TOKEN=whatever
+```
 
 ## Rebuilding the Image
 

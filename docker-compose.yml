@@ -3,11 +3,13 @@ services:
   jekyll-aoc:
     environment:
       - JEKYLL_ENV=docker # to stop Jekyll from overriding site.url to http://0.0.0.0:4000
+      - JEKYLL_GITHUB_TOKEN
     command: jekyll serve --watch --config _config.yml,_config.docker.yml
     image: daz502/jekyll:latest
     container_name: dazbo-jekyll
     volumes:
       - .:/srv/jekyll
+      - ..:/srv # to map the project (parent) folder, if it contains the Git repo
       - ./vendor/bundle:/usr/local/bundle  # to cache bundle configuration
     ports:
       - 127.0.0.1:4000:4000
