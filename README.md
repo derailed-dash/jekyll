@@ -84,8 +84,17 @@ If the image is ever updated, we'll want to update the tag and push to docker.io
 
 ```bash
 # build
-docker image build -t daz502/jekyll:tagname .
+docker image build -t daz502/jekyll:ver .
+docker tag daz502/jekyll:ver daz502/jekyll:latest
 
 # push
-docker push daz502/jekyll:tagname
+docker push daz502/jekyll:ver
+docker push daz502/jekyll:latest
 ```
+
+### Version History
+
+|Version|Changes|
+|-------|-------|
+|0.3|Moved default content to a defaults folder, so that we don't accidentally replace the README.md in an existing site when building a new site|
+|0.2|First working version|

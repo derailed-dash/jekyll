@@ -4,4 +4,4 @@ LABEL maintainer="dazbo"
 
 RUN   gem install bundler:2.3.14
 RUN   gem update
-COPY  --chown=jekyll:jekyll . /srv/config/
+COPY  --chown=jekyll:jekyll ./defaults/* /srv/config/
