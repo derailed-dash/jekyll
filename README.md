@@ -38,7 +38,9 @@ docker run -e "JEKYLL_ENV=docker" --rm -it -v "${PWD}:/srv/jekyll" -p 127.0.0.1:
 From the interactive session, we can perform some initial configuration:
 
 ```bash
-# Initial site creation
+# Initial site creation, if you don't yet have a site folder
+jekyll new my_site
+# Or, if you have a site folder, but no source in it...
 jekyll new --force --skip-bundle .
 
 # Copy our default config into the working volume; preserve file attributes (i.e. jekyll owner)
@@ -46,20 +48,26 @@ jekyll new --force --skip-bundle .
 cp -p ../config/* .
 ```
 
-At this point, make any changes you want to make to the configuration files. For example, you may wish to update the Gemfile to update jekyll and github-pages gem versions, or add any custom plugins we want to use.
+(The Gemfile specifies the dependencies that Ruby should install.)
+
+At this point, **make any changes you want to make to the configuration files**. For example, you may wish to update the Gemfile to update jekyll and github-pages gem versions, or add any custom plugins we want to use.
 
 If you need to update versions for GitHub Pages support, these pages will be helpful:
 
 - [Creating a GitHub Pages Site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 - [GitHub Pages Dependency Versions](https://pages.github.com/versions)
 
+You may also want to update your `_config.yml`, for your basic site settings.
+
 Now complete the site build from the container session:
 
 ```bash
-bundle install
+bundle install # installs dependencies and write the Gemfile.lock
 bundle update
 exit
 ```
+
+Note that you may also want to run the above commands if you have corrupted your local Jekyll docs configuration. 
 
 ### Serving the Site
 
